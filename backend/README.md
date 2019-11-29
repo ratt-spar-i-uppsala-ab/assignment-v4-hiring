@@ -24,10 +24,6 @@ v4-backend
 │   │   ├── interfaces              <- This is where all framework interfaces are declared.
 │   │   └── repositories            <- This folder contains mock repositories.
 │   ├── middleware                  <- Middleware are non-business logic services, often put in before API handlers are run.
-│   │   └── core                    <- Module
-│   │       ├── notes               <- Function
-│   │       ├── risk-analysis       <- Function
-│   │       └── users               <- Function
 │   ├── mocks                       <- This contains controlled implementations of interfaces. All output is known ahead of time. Used for testing.
 │   │   ├── domain                  <- This folder contains mocks for domain-related concepts.
 │   │   └── express                 <- This folder contains mocks for express-related concepts (IRequest and IRequire)
