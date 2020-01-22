@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <auth-modal />
     <router-view />
   </div>
 </template>

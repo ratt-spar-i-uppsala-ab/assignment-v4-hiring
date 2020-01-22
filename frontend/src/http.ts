@@ -1,10 +1,3 @@
-/**
- *
- * This file contains Axios interceptors to automate token
- * negotiation. Make sure this file is imported into main.ts
- * and use Axios' get, put, post etc. calls to interact with the
- */
-
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import store from '@/store/index';
 

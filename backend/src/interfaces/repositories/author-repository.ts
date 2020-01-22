@@ -1,4 +1,4 @@
-import Author from '@domain-objects/common/author';
+import Author from '@domain-objects/post/author';
 import { injectable } from 'inversify';
 
 @injectable()

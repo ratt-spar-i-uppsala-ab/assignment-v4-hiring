@@ -28,7 +28,7 @@ class DbContext {
    * @returns element contained in the database.
    */
 
-  public async find(criteria: {[key: string]: any}): Promise<{[key: string]: any}[]> { // eslint-disable-line
+  public find(criteria: {[key: string]: any}): {[key: string]: any}[] { // eslint-disable-line
     if (Object.keys(criteria).length === 0) {
       return this.collection.data;
     }
@@ -88,7 +88,7 @@ class DbContext {
   }
 
   public async delete(criteria: {[key: string]: any}): Promise<void> { // eslint-disable-line
-    const matches = await this.find(criteria);
+    const matches = this.find(criteria);
     matches.forEach((match: {[key: string]: any}): void => { // eslint-disable-line
       const index = this.getIndexOf(match._id);
       if (index !== -1) {

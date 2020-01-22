@@ -1,28 +1,17 @@
 import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
+import VueRouter from 'vue-router';
+import Posts from '@/views/posts.vue';
 
 
 Vue.use(VueRouter);
 
-/*
- RouteConfig needs: {
-   path: string;
-   name: string;
-   component: Vue Component;
- }
-
- example:
-  import Bar from '@/components/bar.vue';
-
-  const routes = [
-   {
-     path: '/foo',
-     name: 'foo-route',
-     component: Bar,
-   }
- ]
-*/
-const routes: RouteConfig[] = [];
+const routes = [
+  {
+    path: '/',
+    name: 'posts',
+    component: Posts,
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',

@@ -6,12 +6,15 @@ import IAuthenticationService, { JwtPayload } from '@interfaces/application-serv
 import Bind from '@framework/decorators/bind';
 import TYPES from '@framework/di/types';
 import * as crypto from 'crypto';
+import InjectRepository from '@framework/decorators/inject-repository';
+import IAuthorRepository from '@interfaces/repositories/author-repository';
 
 type ResolveFun<T> = (value?: T | PromiseLike<T>) => void;
 type RejectFun = (reason?: any) => void; // eslint-disable-line
 
 @Bind<AuthenticationService>(TYPES.AuthenticationService)
 class AuthenticationService extends IAuthenticationService {
+  @InjectRepository('UserRepository') private users: IAuthorRepository;
   // Consider using database store?
   private invalidTokens: string[] = [];
 

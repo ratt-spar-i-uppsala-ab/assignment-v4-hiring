@@ -2,13 +2,13 @@ import IApiController from '@framework/interfaces/api-controller';
 import ExtApiController from '@framework/decorators/extended-api-controller';
 import ExtApiAction from '@framework/decorators/extended-api-action';
 import InjectRepository from '@framework/decorators/inject-repository';
-import IAuthorRepository from '@interfaces/repositories/author-repository';
 import IUserRepository from '@interfaces/repositories/user-repository';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
 import TYPES from '@framework/di/types';
 import IAuthenticationService from '@interfaces/application-services/authentication';
 import { inject } from 'inversify';
+import IAuthorRepository from '@interfaces/repositories/author-repository';
 
 @ExtApiController<LoginController>(
   'login',

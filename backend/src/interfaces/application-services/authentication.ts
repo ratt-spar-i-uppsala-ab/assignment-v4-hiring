@@ -15,12 +15,51 @@ interface JwtPayload {
   user: {
     _id: string;
     name: string;
-    'is-admin': boolean;
+    title: string;
+    role: 'user' | 'admin' | 'superuser';
+    [key: string]: any;
   };
   permissions: PermissionObject;
   [key: string]: any;
 }
 
+/*
+  Interface for authentication service,
+  allows for the creation, verification and invalidation of JSON webtoken for authentication.
+
+  The payload should contain:
+  - A user field, with user ID, name and title information as well as user role
+  (superuser, organization administrator, user) at minimum. More information is allowed.
+  - A permissions field, which is a nested object structure that describes what permissions a user has.
+  Example:
+  {
+    user: {
+      _id: '1234567890ab',
+      name: 'Test Testsson',
+      signature: 'TeTe',
+      title: 'Caretaker',
+      role: 'user',
+      orgId: '0123456789a',
+    },
+    permissions: {
+      notes: {
+        cdef01234567: {
+          create: false,
+          read: true,
+          update: true,
+          delete: false,
+        },
+        890123456789: {
+          create: true,
+          read: true,
+          update: true,
+          delete: true
+        }
+      }
+    }
+  }
+  Example gives user permissions to specific journal IDs.
+*/
 @injectable()
 abstract class IAuthenticationService {
   /*

@@ -10,6 +10,14 @@ const Persist = new VuexPersistence({
 });
 export default new Vuex.Store({
   state: {
+    token: '',
+    refresh: '',
+    tokenMeta: {},
+    tokenPayload: {},
+    isRefreshing: false,
+    refreshPromise: undefined,
+    showLoginError: false,
+    showRegisterError: false,
   },
   mutations: {
     logout(state: any) {
@@ -19,6 +27,8 @@ export default new Vuex.Store({
       state.tokenPayload = {};
       state.isRefreshing = false;
       state.refreshPromise = undefined;
+      state.showLoginError = false;
+      state.showRegisterError = false;
     },
     setAuthToken(state: any, newToken: string): void {
       state.token = newToken;
@@ -36,6 +46,12 @@ export default new Vuex.Store({
     clearRefresh(state: any) {
       state.isRefreshing = false;
       state.refreshPromise = undefined;
+    },
+    showLoginError(state: any, show: boolean) {
+      state.showLoginError = show;
+    },
+    showRegisterError(state: any, show: boolean) {
+      state.showRegisterError = show;
     },
   },
   actions: {
